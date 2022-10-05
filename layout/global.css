@@ -3,3 +3,13 @@
   src: local('SFC UI Text Medium'),
     url(~assets/SFUIText-Medium.ttf) format('truetype');
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  color: inherit;
+}
