@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'SFC UI Text Medium';
+  src: local('SFC UI Text Medium'),
+    url(~assets/SFUIText-Medium.ttf) format('truetype');
+}
