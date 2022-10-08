@@ -8,8 +8,8 @@
       <p class="shelving-card__info-title">{{ name }}</p>
       <div class="shelving-card__footer">
         <div class="shelving-card__price-info">
-          <span v-if="price.old_price" class="shelving-card__old-price"
-            >{{ Math.floor(price.old_price) }}₽</span
+          <s v-if="price.old_price" class="shelving-card__old-price"
+            >{{ Math.floor(price.old_price) }}₽</s
           >
           <span class="shelving-card__price"
             >{{ Math.floor(price.current_price) }}₽</span
@@ -68,22 +68,16 @@ export default {
   },
   methods: {
     dropToFavourite() {
-      // FIXME:Переписать
-      const favList = localStorage.getItem('favourite')
-
-      if (favList) {
-        if (favList.includes(this.id))
-          return this.$store.dispatch('handleRemoveFavList', this.id)
-
-        this.$store.dispatch(
-          'handleUpdateLocalStorage',
-          JSON.stringify([...JSON.parse(favList), this.id])
-        )
-
-        this.$store.dispatch('handlePushFavList', this.id)
-      } else {
-        localStorage.setItem('favourite', JSON.stringify([this.id]))
+      if (this.favList.includes(this.id)) {
+        return this.$store.dispatch('handleRemoveFavList', this.id)
       }
+
+      const favList = localStorage.getItem('favourite') ?? `[]`
+      this.$store.dispatch(
+        'handleUpdateLocalStorage',
+        JSON.stringify([...JSON.parse(favList), this.id])
+      )
+      this.$store.dispatch('handlePushFavList', this.id)
     },
     dropToCart() {
       this.inCartList
@@ -123,7 +117,16 @@ export default {
 
   &__actions {
     display: flex;
-    gap: 8px;
+    gap: 25px;
+  }
+
+  &__info-title {
+    margin: 6px 0 10px;
+    font-size: 16px;
+  }
+
+  &__price-info {
+    font-family: 'SFC UI Text Regular';
   }
 
   &__info-atricle {
@@ -133,16 +136,7 @@ export default {
 
   &__old-price {
     color: #888;
-    position: relative;
-  }
-
-  &__old-price::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #888;
-    top: 50%;
+    font-weight: 300;
   }
 
   &__fav-icon--active {

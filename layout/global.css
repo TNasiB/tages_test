@@ -4,6 +4,24 @@
     url(~assets/SFUIText-Medium.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'SFC UI Text Regular';
+  src: local('SFC UI Text Regular'),
+    url(~assets/SFUIText-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFPRODISPLAY Medium';
+  src: local('SFPRODISPLAY Medium'),
+    url(~assets/SFPRODISPLAY_medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SFPRODISPLAY Regular';
+  src: local('SFC UI Text Regular'),
+    url(~assets/SFUIText-Regular.ttf) format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;

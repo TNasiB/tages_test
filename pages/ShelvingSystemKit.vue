@@ -1,5 +1,5 @@
 <template>
-  <div class="shelving-system-kit">
+  <section class="shelving-system-kit">
     <div class="shelving-system-kit__breadcrumbs">
       <span class="shelving-system-kit__breadcrumbs-item">Главная</span>
       <span>/</span>
@@ -26,7 +26,7 @@
         <ShelvingCard v-bind="card" />
       </CardWrapper>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -79,7 +79,6 @@ export default {
 
   &__wrapper {
     display: grid;
-    // grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-columns: repeat(auto-fill, minmax(250px, auto));
     gap: 48px;
   }
@@ -92,6 +91,7 @@ export default {
     font-size: 36px;
     font-weight: 600;
     padding-top: 32px;
+    font-family: 'SFPRODISPLAY Medium';
   }
 }
 

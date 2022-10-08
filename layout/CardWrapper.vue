@@ -22,6 +22,12 @@ export default {
   border: 1px solid #eeeeee;
   padding: 10px;
   position: relative;
+  box-shadow: 0px 0px 0px 0px transparent;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0px 0px 20px -10px rgb(0 0 0 / 25%);
+  }
 
   &__sale-label {
     background-color: #eb5757;
@@ -29,6 +35,8 @@ export default {
     padding: 3px 16px;
     left: 0;
     position: absolute;
+    font-family: 'SFPRODISPLAY Medium';
+    font-size: 14px;
   }
 }
 </style>
